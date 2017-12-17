@@ -1,0 +1,49 @@
+server:
+  port: 9000
+
+management:
+  port: 9001
+  security:
+    enabled: false
+
+spring:
+  application:
+    index: 0
+    name: scaffolding
+
+  main:
+    banner-mode: "off"
+
+  datasource:
+    name: rcp-java-DBCP
+    url: jdbc:mysql://localhost:3306/scaffolding?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=true
+    username: root
+    password: toby#123
+    driverClassName : com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connectionTimeout: 50000
+      idleTimeout: 600000
+      maxLifetime: 3600000
+      validationTimeout: 5000
+      leakDetectionThreshold: 20000
+      maximumPoolSize: 20
+      minimumIdle: 20
+
+  redis:
+    database: 10
+    host: localhost
+    port: 6379
+    password: hd*e+rt
+    timeout: 2000
+    pool:
+      max-active: 1024
+      max-idle: 200
+      max-wait: 1000
+      min-idle: 200
+      testOnBorrow: true
+      testOnReturn: true
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: com/toby/scaffolding/mapper/**/*.xml
