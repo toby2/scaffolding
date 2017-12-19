@@ -1,11 +1,15 @@
 package com.toby.scaffolding.controller.demo;
 
-import com.sun.deploy.net.HttpResponse;
 import com.toby.scaffolding.biz.u.IUserService;
-import com.toby.scaffolding.dto.u.in.UserIn;
+import com.toby.scaffolding.controller.base.BaseController;
+import com.toby.scaffolding.dto.base.Request;
+import com.toby.scaffolding.dto.u.request.UserIn;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * @author Toby
@@ -15,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-public class RestApi {
+public class RestApi extends BaseController{
 
     @Autowired
     private IUserService userService;
@@ -27,7 +31,11 @@ public class RestApi {
 
     @PostMapping(value = "/u")
     @ResponseBody
-    public void postUser(@RequestBody UserIn params) {
-        userService.saveUser(params);
+    public void postUser(@RequestBody
+                         @Valid Request<UserIn> in, Errors errors) {
+        if (errors.hasErrors()) {
+            log.info(errors.getFieldError().getField()+": "+errors.getFieldError().getDefaultMessage());
+        }
+        log.info(String.valueOf(userService.saveUser(in.getBody())));
     }
 }

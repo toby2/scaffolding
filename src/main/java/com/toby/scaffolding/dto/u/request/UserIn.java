@@ -1,7 +1,9 @@
-package com.toby.scaffolding.dto.u.in;
+package com.toby.scaffolding.dto.u.request;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -10,10 +12,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Data
 @Builder
-public class UserIn {
-    @NotEmpty
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserIn{
+    @NotEmpty(message = "名字不能为空")
     private String name;
-    @NotEmpty
+    @NotEmpty(message = "地址不能为空")
     private String adress;
 
     //高中学校名称

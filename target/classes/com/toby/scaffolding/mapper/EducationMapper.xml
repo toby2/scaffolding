@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.toby.scaffolding.mapper.EducationDao" >
+    <resultMap id="BaseResultMap" type="com.toby.scaffolding.domain.EducationEntity" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="high_school_name" property="high_school_name" jdbcType="VARCHAR" />
+        <result column="middle_school_name" property="middle_school_name" jdbcType="VARCHAR" />
+        <result column="university_name" property="university_name" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, high_school_name, middle_school_name, university_name
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select 
+        <include refid="Base_Column_List" />
+        from education
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <insert id="insertSelective" parameterType="com.toby.scaffolding.domain.EducationEntity" >
+        insert into education
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="high_school_name != null" >
+                high_school_name,
+            </if>
+            <if test="middle_school_name != null" >
+                middle_school_name,
+            </if>
+            <if test="university_name != null" >
+                university_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="high_school_name != null" >
+                #{high_school_name,jdbcType=VARCHAR},
+            </if>
+            <if test="middle_school_name != null" >
+                #{middle_school_name,jdbcType=VARCHAR},
+            </if>
+            <if test="university_name != null" >
+                #{university_name,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.toby.scaffolding.domain.EducationEntity" >
+        update education
+        <set >
+            <if test="high_school_name != null" >
+                high_school_name = #{high_school_name,jdbcType=VARCHAR},
+            </if>
+            <if test="middle_school_name != null" >
+                middle_school_name = #{middle_school_name,jdbcType=VARCHAR},
+            </if>
+            <if test="university_name != null" >
+                university_name = #{university_name,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+        delete from education
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+</mapper>

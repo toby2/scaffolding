@@ -9,12 +9,11 @@ import com.toby.scaffolding.domain.UserEntity;
 
 public interface UserDao {
 
-    public int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer id);
 
-    public int insertSelective(UserEntity record);
+    int insertSelective(UserEntity record);
 
-    public UserEntity selectByPrimaryKey(Integer id);
+    UserEntity selectByPrimaryKey(Integer id);
 
-    public int updateByPrimaryKeySelective(UserEntity record);
-
+    int updateByPrimaryKeySelective(UserEntity record);
 }

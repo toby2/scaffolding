@@ -1,7 +1,7 @@
 package com.toby.scaffolding.biz.u;
 
 import com.toby.scaffolding.domain.UserEntity;
-import com.toby.scaffolding.dto.u.in.UserIn;
+import com.toby.scaffolding.dto.u.request.UserIn;
 
 /**
  * @Description
