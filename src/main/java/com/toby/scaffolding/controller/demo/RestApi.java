@@ -32,10 +32,7 @@ public class RestApi extends BaseController{
     @PostMapping(value = "/u")
     @ResponseBody
     public void postUser(@RequestBody
-                         @Valid Request<UserIn> in, Errors errors) {
-        if (errors.hasErrors()) {
-            log.info(errors.getFieldError().getField()+": "+errors.getFieldError().getDefaultMessage());
-        }
+                         @Valid Request<UserIn> in) {
         log.info(String.valueOf(userService.saveUser(in.getBody())));
     }
 }

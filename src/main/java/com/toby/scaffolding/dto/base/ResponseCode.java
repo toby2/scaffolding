@@ -11,28 +11,22 @@
 
 package com.toby.scaffolding.dto.base;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  * @author Toby
- * @since 2017/12/20
+ * @since 2017/12/22
  */
-@Data
-@Builder
-public class Response {
-    /**
-     * 状态码
-     */
+@Getter
+@AllArgsConstructor
+public enum ResponseCode {
+    SUCCESS("200", "请求成功"),
+    SERVER_ERROR("500", "服务器异常，请稍候再试"),
+    PARAMETER_ERROR("10001","参数错误");
+
     private String code;
 
-    /**
-     * 提示信息
-     */
     private String msg;
 
-    /**
-     * 各个接口返回的数据
-     */
-    private Object body;
 }

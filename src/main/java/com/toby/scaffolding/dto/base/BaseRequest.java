@@ -12,6 +12,7 @@
 package com.toby.scaffolding.dto.base;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -23,13 +24,13 @@ public abstract class BaseRequest {
     /**
      * 请求api的版本号
      */
-    @NotEmpty(message = "API版本号不能为空")
+    @NotBlank(message = "API版本号不能为空")
     protected String apiVersion;
 
     /**
      * 对外发行的app版本号
      */
-    @NotEmpty(message = "APP版本号不能为空")
+    @NotBlank(message = "APP版本号不能为空")
     protected String appVersion;
     /**
      * 设备唯一识别号

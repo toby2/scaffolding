@@ -9,30 +9,17 @@
  *
  */
 
-package com.toby.scaffolding.dto.base;
+package com.toby.scaffolding.exception;
 
-import lombok.Builder;
 import lombok.Data;
 
 /**
  * @author Toby
- * @since 2017/12/20
+ * @since 2017/12/22
  */
 @Data
-@Builder
-public class Response {
-    /**
-     * 状态码
-     */
-    private String code;
-
-    /**
-     * 提示信息
-     */
-    private String msg;
-
-    /**
-     * 各个接口返回的数据
-     */
-    private Object body;
+public class ArgumentInvalidResult {
+    private String field;
+    private Object rejectedValue;
+    private String defaultMessage;
 }

@@ -9,30 +9,22 @@
  *
  */
 
-package com.toby.scaffolding.dto.base;
-
-import lombok.Builder;
-import lombok.Data;
+package com.toby.scaffolding.exception;
 
 /**
+ * 返回给App显示的异常信息
  * @author Toby
- * @since 2017/12/20
+ * @since 2017/12/22
  */
-@Data
-@Builder
-public class Response {
-    /**
-     * 状态码
-     */
+public class BizException extends RuntimeException {
     private String code;
 
-    /**
-     * 提示信息
-     */
-    private String msg;
+    public BizException(String msg, String code) {
+        super(msg);
+        this.code = code;
+    }
 
-    /**
-     * 各个接口返回的数据
-     */
-    private Object body;
+    public String getCode() {
+        return code;
+    }
 }
