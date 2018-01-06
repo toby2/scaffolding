@@ -9,7 +9,7 @@
  *
  */
 
-package com.toby.scaffolding.dto.base;
+package com.toby.scaffolding.dto.base.request;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;

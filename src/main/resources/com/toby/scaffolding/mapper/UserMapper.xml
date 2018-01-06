@@ -32,6 +32,20 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
 
+    <select id="getBySelective" resultMap="BaseResultMap" parameterType="com.toby.scaffolding.dto.u.request.UserQo" >
+        select
+        <include refid="Base_Column_List" />
+        from user
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE '%${name}%'
+            </if>
+            <if test="adress != null and adress != ''">
+                AND adress LIKE '%${adress}%'
+            </if>
+        </where>
+    </select>
+
     <insert id="insertSelective" parameterType="com.toby.scaffolding.domain.UserEntity" keyProperty="id" useGeneratedKeys="true">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides="," >

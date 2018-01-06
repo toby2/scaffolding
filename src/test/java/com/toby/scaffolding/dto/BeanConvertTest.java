@@ -2,7 +2,7 @@ package com.toby.scaffolding.dto;
 
 import com.toby.scaffolding.domain.UserEntity;
 import com.toby.scaffolding.domain.UserStatusEnum;
-import com.toby.scaffolding.dto.u.request.UserIn;
+import com.toby.scaffolding.dto.u.request.UserP;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +16,7 @@ public class BeanConvertTest {
 
     @Test
     public void testConvert() {
-        UserIn userIn = UserIn.builder()
+        UserP userP = UserP.builder()
                 .name("toby")
                 .adress("glaxy")
                 .middle_school_name("调关二中")
@@ -24,9 +24,9 @@ public class BeanConvertTest {
                 .university_name("重庆大学")
                 .build();
         ModelMapper modelMapper = new ModelMapper();
-        UserEntity userEntity = modelMapper.map(userIn, UserEntity.class);
-        Assert.assertEquals(userIn.getName(),userEntity.getName());
-        Assert.assertEquals(userIn.getAdress(),userEntity.getAdress());
+        UserEntity userEntity = modelMapper.map(userP, UserEntity.class);
+        Assert.assertEquals(userP.getName(),userEntity.getName());
+        Assert.assertEquals(userP.getAdress(),userEntity.getAdress());
         log.info(UserStatusEnum.OPEN.getStatus());
 
     }

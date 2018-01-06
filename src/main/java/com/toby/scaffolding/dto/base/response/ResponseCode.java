@@ -9,7 +9,7 @@
  *
  */
 
-package com.toby.scaffolding.dto.base;
+package com.toby.scaffolding.dto.base.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

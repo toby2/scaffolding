@@ -9,28 +9,18 @@
  *
  */
 
-package com.toby.scaffolding.dto.base;
+package com.toby.scaffolding.dto.u.response;
 
+import com.toby.scaffolding.dto.base.r.PagingR;
 import lombok.Data;
 
-import javax.validation.Valid;
+import java.util.List;
 
 /**
- * @author Toby
- * @since 2017/12/19
+ * Created by Toby on 2017/12/17.
  */
+
 @Data
-public class Request<T> extends BaseRequest {
-    /**
-     * 用户id
-     */
-    protected String userId;
-
-    /**
-     * 请求认证的token
-     */
-    protected String token;
-
-    @Valid
-    private T body;
+public class UserQR extends PagingR {
+    private List<UserVo> userVoList;
 }

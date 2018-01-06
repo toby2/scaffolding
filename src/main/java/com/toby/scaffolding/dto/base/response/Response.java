@@ -9,7 +9,7 @@
  *
  */
 
-package com.toby.scaffolding.dto.base;
+package com.toby.scaffolding.dto.base.response;
 
 import lombok.Builder;
 import lombok.Data;
@@ -20,11 +20,11 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class Response {
+public class Response<T> {
     /**
      * 状态码
      */
-    private String code;
+    private String code = "200";
 
     /**
      * 提示信息
@@ -34,5 +34,19 @@ public class Response {
     /**
      * 各个接口返回的数据
      */
-    private Object body;
+    private T body;
+
+    /**
+     * 默认返回成功的Response
+     *
+     * @param body
+     * @return
+     */
+    public static Response getInstance(Object body) {
+        return Response.builder()
+                .code(ResponseCode.SUCCESS.getCode())
+                .msg(ResponseCode.SUCCESS.getMsg())
+                .body(body)
+                .build();
+    }
 }

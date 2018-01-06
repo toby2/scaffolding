@@ -1,7 +1,11 @@
 package com.toby.scaffolding.biz.u;
 
 import com.toby.scaffolding.domain.UserEntity;
-import com.toby.scaffolding.dto.u.request.UserIn;
+import com.toby.scaffolding.dto.u.request.UserP;
+import com.toby.scaffolding.dto.u.request.UserQo;
+import com.toby.scaffolding.dto.u.response.UserQR;
+
+import java.util.List;
 
 /**
  * @Description
@@ -22,7 +26,7 @@ public interface IUserService {
      * @param user
      * @return
      */
-    int saveUser(UserIn user);
+    int saveUser(UserP user);
 
     /**
      * 获取用户信息
@@ -36,5 +40,12 @@ public interface IUserService {
      * @param user
      * @return
      */
-    int updateUser(UserIn user);
+    int updateUser(UserP user);
+
+    /**
+     * 根据qo查询出结果，支持模糊查询
+     * @param qo
+     * @return
+     */
+    UserQR getBySelective(UserQo qo);
 }

@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserIn{
+public class UserP {
     @NotEmpty(message = "名字不能为空")
     private String name;
     @NotEmpty(message = "地址不能为空")

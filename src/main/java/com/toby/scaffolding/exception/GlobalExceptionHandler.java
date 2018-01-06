@@ -11,15 +11,14 @@
 
 package com.toby.scaffolding.exception;
 
-import com.toby.scaffolding.dto.base.Response;
-import com.toby.scaffolding.dto.base.ResponseCode;
+import com.toby.scaffolding.dto.base.response.Response;
+import com.toby.scaffolding.dto.base.response.ResponseCode;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.jws.WebResult;
 import java.util.ArrayList;
 import java.util.List;
 

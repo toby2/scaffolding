@@ -9,7 +9,7 @@ import lombok.Data;
  */
 
 @Data
-public class UserOut {
+public class UserR {
     private UserEntity u;
 
     private EducationEntity education;
